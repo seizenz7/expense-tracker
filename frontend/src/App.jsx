@@ -1,16 +1,26 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home'; // Komponen halaman utama
+import Login from './pages/Login'; // Komponen halaman login
+import Register from './pages/Register'; // Komponen halaman register
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './styles/App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <Router>
     <div>
-      <h1>Hello Expense Tracker</h1>
-      <p>Ini adalah proyek fullstack + devops pertama saya.</p>
+      <h1>Personal Expense Tracker</h1>
+      <p>Welcome! Start managing your expenses here.</p>
+      <Routes> {/* Menambahkan Routes disini */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </div>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -32,7 +42,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </Router>
   )
 }
 
